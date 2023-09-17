@@ -5,7 +5,41 @@
     quakec
     :override t
     :feature comment
-    ((comment) @font-lock-comment-face)))
+    ((comment) @font-lock-comment-face)
+
+    :language
+    quakec
+    :override t
+    :feature numeric_literal
+    ((numeric_literal) @font-lock-number-face)
+
+    :language
+    quakec
+    :override t
+    :feature builtin_literal
+    ((builtin_literal) @font-lock-number-face)
+
+    :language
+    quakec
+    :override t
+    :feature string_literal
+    ((string_literal) @font-lock-string-face)
+
+    :language
+    quakec
+    :override t
+    :feature keyword
+    (["break" "return" "continue" "enum" "for" "while" "do" "class" "nosave"]
+     @font-lock-keyword-face)
+
+    :language
+    quakec
+    :override t
+    :feature preprocessor
+    (["#define" "#undef" "#ifdef" "#ifndef" "#else" "#endif"]
+     @font-lock-preprocessor-face)
+
+    ))
 
 (define-derived-mode quakec-ts-mode prog-mode "QuakeC-ts"
   "Major mode for editing QuakeC files with tree-sitter."
@@ -31,7 +65,7 @@
   ;; TODO: come up with a list of things to highlight
   (setq-local treesit-font-lock-feature-list
               '((comment)
-                (constant)
+                (constant keyword numeric_literal string_literal builtin_literal preprocessor)
                 (declaration)
                 (delimiter)))
 
