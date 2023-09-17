@@ -1,0 +1,46 @@
+;;; quakec-mode.el --- Major mode for editing QuakeC with tree-sitter  -*- coding: utf-8; lexical-binding: t; -*-
+
+(defvar quakec-ts-font-lock-rules
+  '(:language
+    quakec
+    :override t
+    :feature comment
+    ((comment) @font-lock-comment-face)))
+
+(define-derived-mode quakec-ts-mode prog-mode "QuakeC-ts"
+  "Major mode for editing QuakeC files with tree-sitter."
+
+  ;; TODO: syntax table?
+  ;; :syntax-table quakec-ts-mode-syntax-table
+
+  (setq-local font-lock-defaults nil)
+  (when (treesit-ready-p 'quakec)
+    (treesit-parser-create 'quakec)
+    (quakec-ts-setup)))
+
+(defun quakec-ts-setup ()
+  "Setup treesit for -ts-mode."
+
+  ;; font-locking
+  ;;
+
+  (setq-local treesit-font-lock-settings
+              (apply #'treesit-font-lock-rules
+                     quakec-ts-font-lock-rules))
+
+  ;; TODO: come up with a list of things to highlight
+  (setq-local treesit-font-lock-feature-list
+              '((comment)
+                (constant)
+                (declaration)
+                (delimiter)))
+
+  ;; indentation
+  ;;
+
+  ;; TODO:
+  ;; (setq-local treesit-simple-indent-rules quakec-ts-indent-rules)
+
+  ;; mandatory
+  ;;
+  (treesit-major-mode-setup))
