@@ -1,0 +1,19 @@
+* Initial Release
+
+- [ ] full font-locking
+
+  - [ ] tests?
+
+- [ ] indentation
+
+  - [ ] tests?
+
+- [ ] cask/project setup
+
+- [ ] imenu
+
+- [ ] whichfunc
+
+- [ ] xref/tags
+
+- [ ] do I need to tie the mode to a precise grammar commit or a tag?
