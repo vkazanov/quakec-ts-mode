@@ -46,12 +46,13 @@
 
     ;; TODO: catches wrong lower case (e.g. enum name, also doesn't
     ;; work in expressions)
-    :language
-    quakec
-    :override t
-    :feature constant
-    (((identifier) @font-lock-constant-face
-      (:match "[A-Z_][A-Z\\d_]*" @font-lock-constant-face)))
+
+    ;; :language
+    ;; quakec
+    ;; :override t
+    ;; :feature constant
+    ;; (((identifier) @font-lock-constant-face
+    ;;   (:match "[A-Z_][A-Z\\d_]*" @font-lock-constant-face)))
 
     :language
     quakec
