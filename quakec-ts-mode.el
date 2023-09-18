@@ -39,6 +39,22 @@
     (["#define" "#undef" "#ifdef" "#ifndef" "#else" "#endif"]
      @font-lock-preprocessor-face)
 
+    :language
+    quakec
+    :override t
+    :feature type
+    ((simple_type) @font-lock-type-face)
+
+    :language
+    quakec
+    :override t
+    :feature function-name
+    ([(function_declaration
+       name: (identifier) @font-lock-function-name-face)
+      (function_definition
+       name: (identifier) @font-lock-function-name-face)
+      (funcall_expression
+       function: (identifier) @font-lock-function-name-face)])
     ))
 
 (define-derived-mode quakec-ts-mode prog-mode "QuakeC-ts"
@@ -65,8 +81,8 @@
   ;; TODO: come up with a list of things to highlight
   (setq-local treesit-font-lock-feature-list
               '((comment)
-                (constant keyword numeric_literal string_literal builtin_literal preprocessor)
-                (declaration)
+                (type constant keyword numeric_literal string_literal builtin_literal preprocessor)
+                (function-name)
                 (delimiter)))
 
   ;; indentation
