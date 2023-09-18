@@ -1,12 +1,12 @@
 * Initial Release
 
-- [ ] full font-locking
+- [X] basic font-locking
 
-  - [ ] tests?
+- [ ] syntax-table? see java-ts-mode for an example
 
 - [ ] indentation
 
-  - [ ] tests?
+- [ ] full font-locking (enums and more, work from the grammar)
 
 - [ ] cask/project setup
 

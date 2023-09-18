@@ -10,20 +10,10 @@
     :language
     quakec
     :override t
-    :feature numeric_literal
-    ((numeric_literal) @font-lock-number-face)
-
-    :language
-    quakec
-    :override t
-    :feature builtin_literal
-    ((builtin_literal) @font-lock-number-face)
-
-    :language
-    quakec
-    :override t
-    :feature string_literal
-    ((string_literal) @font-lock-string-face)
+    :feature literal
+    (((numeric_literal) @font-lock-number-face)
+     ((builtin_literal) @font-lock-number-face)
+     ((string_literal) @font-lock-string-face))
 
     :language
     quakec
@@ -31,6 +21,36 @@
     :feature keyword
     (["break" "return" "continue" "enum" "for" "while" "do" "class" "nosave"]
      @font-lock-keyword-face)
+
+    :language
+    quakec
+    :override t
+    :feature constant
+    (((identifier) @font-lock-constant-face
+      (:match "[A-Z_][A-Z\\d_]*" @font-lock-constant-face)))
+
+    :language
+    quakec
+    :override t
+    :feature operator
+    ((field_expression
+      operator: ["." "->"] @font-lock-operator-face
+      field: (identifier) @font-lock-variable-name-face)
+
+     ["--" "-" "-=" "->" "=" "!=" "*" "&" "&&" "+" "++" "+=" "<" "==" ">" "||" ]
+     @font-lock-operator-face)
+
+    :language
+    quakec
+    :override t
+    :feature punctuation
+    ([";" ":" "..."] @font-lock-punctuation-face)
+
+    :language
+    quakec
+    :override t
+    :feature bracket
+    (["(" ")" "{" "}" "[" "]"] @font-lock-bracket-face)
 
     :language
     quakec
@@ -49,38 +69,46 @@
     quakec
     :override t
     :feature variable
-    ([(variable_definition
-       name: (identifier) @font-lock-variable-name-face)
-      (field_definition
-       name: (identifier) @font-lock-variable-name-face)
-      (parameter
-       name: (identifier) @font-lock-variable-name-face)
+    ((variable_definition
+      name: (identifier) @font-lock-variable-name-face)
+     (field_definition
+      name: (identifier) @font-lock-variable-name-face)
+     (parameter
+      name: (identifier) @font-lock-variable-name-face)
 
-      (assignment_expression
-       target: (identifier) @font-lock-variable-use-face)
-      (field_expression
-       field: (identifier) @font-lock-variable-use-face)
-      (unary_expression
-       target: (identifier) @font-lock-variable-use-face)
-      (update_expression
-       target: (identifier) @font-lock-variable-use-face)
-      (binary_expression
-       left: (identifier) @font-lock-variable-use-face)
-      (binary_expression
-       right: (identifier) @font-lock-variable-use-face)])
+     (assignment_expression
+      target: (identifier) @font-lock-variable-use-face)
+     (field_expression
+      argument: (identifier) @font-lock-variable-use-face
+      field: (identifier) @font-lock-variable-use-face)
+     (unary_expression
+      target: (identifier) @font-lock-variable-use-face)
+     (update_expression
+      target: (identifier) @font-lock-variable-use-face)
+     (binary_expression
+      left: (identifier) @font-lock-variable-use-face)
+     (binary_expression
+      right: (identifier) @font-lock-variable-use-face))
 
     :language
     quakec
     :override t
     :feature function-name
-    ([(function_declaration
-       name: (identifier) @font-lock-function-name-face)
-      (function_definition
-       name: (identifier) @font-lock-function-name-face)
-      (funcall_expression
-       function: (identifier) @font-lock-function-name-face)
-      (funcall_expression
-       function: (field_expression field: (identifier) @font-lock-function-name-face))])
+    ((function_declaration
+      name: (identifier) @font-lock-function-name-face)
+     (function_definition
+      name: (identifier) @font-lock-function-name-face)
+     (funcall_expression
+      function: (identifier) @font-lock-function-name-face)
+     (funcall_expression
+      function: (field_expression field: (identifier) @font-lock-function-name-face)))
+
+    :language
+    quakec
+    :override t
+    :feature builtin
+    (((identifier) @font-lock-builtin-face
+      (:equal "self" @font-lock-builtin-face)))
     ))
 
 (define-derived-mode quakec-ts-mode prog-mode "QuakeC-ts"
@@ -107,9 +135,9 @@
   ;; TODO: come up with a list of things to highlight
   (setq-local treesit-font-lock-feature-list
               '((comment)
-                (type constant keyword numeric_literal string_literal builtin_literal preprocessor)
-                (function-name variable)
-                (delimiter)))
+                (operator type constant keyword literal preprocessor)
+                (function-name variable punctuation bracket)
+                (delimiter builtin)))
 
   ;; indentation
   ;;
