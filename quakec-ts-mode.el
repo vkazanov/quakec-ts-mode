@@ -54,7 +54,9 @@
       (function_definition
        name: (identifier) @font-lock-function-name-face)
       (funcall_expression
-       function: (identifier) @font-lock-function-name-face)])
+       function: (identifier) @font-lock-function-name-face)
+      (funcall_expression
+       function: (field_expression field: (identifier) @font-lock-function-name-face))])
     ))
 
 (define-derived-mode quakec-ts-mode prog-mode "QuakeC-ts"
