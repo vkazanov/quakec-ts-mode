@@ -48,6 +48,30 @@
     :language
     quakec
     :override t
+    :feature variable
+    ([(variable_definition
+       name: (identifier) @font-lock-variable-name-face)
+      (field_definition
+       name: (identifier) @font-lock-variable-name-face)
+      (parameter
+       name: (identifier) @font-lock-variable-name-face)
+
+      (assignment_expression
+       target: (identifier) @font-lock-variable-use-face)
+      (field_expression
+       field: (identifier) @font-lock-variable-use-face)
+      (unary_expression
+       target: (identifier) @font-lock-variable-use-face)
+      (update_expression
+       target: (identifier) @font-lock-variable-use-face)
+      (binary_expression
+       left: (identifier) @font-lock-variable-use-face)
+      (binary_expression
+       right: (identifier) @font-lock-variable-use-face)])
+
+    :language
+    quakec
+    :override t
     :feature function-name
     ([(function_declaration
        name: (identifier) @font-lock-function-name-face)
@@ -84,7 +108,7 @@
   (setq-local treesit-font-lock-feature-list
               '((comment)
                 (type constant keyword numeric_literal string_literal builtin_literal preprocessor)
-                (function-name)
+                (function-name variable)
                 (delimiter)))
 
   ;; indentation
