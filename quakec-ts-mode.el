@@ -1,5 +1,27 @@
 ;;; quakec-mode.el --- Major mode for editing QuakeC with tree-sitter  -*- coding: utf-8; lexical-binding: t; -*-
 
+(defvar quakec-ts-mode--syntax-table
+  (let ((table (make-syntax-table)))
+    ;; Adapted from c-ts-mode
+    (modify-syntax-entry ?_  "_"     table)
+    (modify-syntax-entry ?\\ "\\"    table)
+    (modify-syntax-entry ?+  "."     table)
+    (modify-syntax-entry ?-  "."     table)
+    (modify-syntax-entry ?=  "."     table)
+    (modify-syntax-entry ?%  "."     table)
+    (modify-syntax-entry ?<  "."     table)
+    (modify-syntax-entry ?>  "."     table)
+    (modify-syntax-entry ?&  "."     table)
+    (modify-syntax-entry ?|  "."     table)
+    (modify-syntax-entry ?\240 "."   table)
+    (modify-syntax-entry ?/  ". 124b" table)
+    (modify-syntax-entry ?*  ". 23"   table)
+    (modify-syntax-entry ?\n "> b"  table)
+    (modify-syntax-entry ?\^m "> b" table)
+    table)
+  "Syntax table for `quakec-ts-mode'.")
+
+
 (defvar quakec-ts-font-lock-rules
   '(:language
     quakec
@@ -113,6 +135,7 @@
 
 (define-derived-mode quakec-ts-mode prog-mode "QuakeC-ts"
   "Major mode for editing QuakeC files with tree-sitter."
+  :syntax-table quakec-ts-mode--syntax-table
 
   ;; TODO: syntax table?
   ;; :syntax-table quakec-ts-mode-syntax-table
