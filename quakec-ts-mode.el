@@ -1,5 +1,19 @@
 ;;; quakec-mode.el --- Major mode for editing QuakeC with tree-sitter  -*- coding: utf-8; lexical-binding: t; -*-
 
+(defvar quakec-ts-indent-rules
+  `((quakec
+     ((parent-is "source_file") column-0 0)
+     ((node-is ")") parent 1)
+     ((node-is "]") parent-bol 0)
+
+     ((or (match nil "compound_statement" nil 1 1)
+          (match null "compound_statement"))
+      standalone-parent 2)
+     ((parent-is "compound_statement") prev-sibling 0)
+
+     ((node-is "}") standalone-parent 0)
+     )))
+
 (defvar quakec-ts-mode--syntax-table
   (let ((table (make-syntax-table)))
     ;; Adapted from c-ts-mode
@@ -45,7 +59,8 @@
      @font-lock-keyword-face)
 
     ;; TODO: catches wrong lower case (e.g. enum name, also doesn't
-    ;; work in expressions)
+    ;; work in expressions), to be debugged as the regexp engine is on
+    ;; emacs
 
     ;; :language
     ;; quakec
@@ -168,8 +183,8 @@
   ;; indentation
   ;;
 
-  ;; TODO:
-  ;; (setq-local treesit-simple-indent-rules quakec-ts-indent-rules)
+  ;; TODO: finish
+  (setq-local treesit-simple-indent-rules quakec-ts-indent-rules)
 
   ;; mandatory
   ;;
