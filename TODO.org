@@ -2,7 +2,7 @@
 
 - [X] basic font-locking
 
-- [ ] syntax-table? see java-ts-mode for an example
+- [X] syntax-table? see java-ts-mode for an example
 
 - [ ] indentation
 

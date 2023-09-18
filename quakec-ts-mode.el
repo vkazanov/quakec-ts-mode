@@ -44,6 +44,8 @@
     (["break" "return" "continue" "enum" "for" "while" "do" "class" "nosave"]
      @font-lock-keyword-face)
 
+    ;; TODO: catches wrong lower case (e.g. enum name, also doesn't
+    ;; work in expressions)
     :language
     quakec
     :override t
