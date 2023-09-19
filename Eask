@@ -1,7 +1,7 @@
 (package "quakec-ts-mode"
          "0.1.0"
          "Major mode for editing QuakeC with tree-sitter")
-
+(license "GPLv3")
 (website-url "https://github.com/vkazanov/quakec-ts-mode")
 (keywords "games" "languages")
 

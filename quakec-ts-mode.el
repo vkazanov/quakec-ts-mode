@@ -8,12 +8,14 @@
      ((node-is ")") parent 1)
      ((node-is "]") parent-bol 0)
 
+     ;; should happen before the compound_statement checks
+     ((node-is "}") standalone-parent 0)
+
      ((or (match nil "compound_statement" nil 1 1)
           (match null "compound_statement"))
       standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "compound_statement") prev-sibling 0)
 
-     ((node-is "}") standalone-parent 0)
      )))
 
 (defvar quakec-ts-mode--syntax-table
@@ -191,3 +193,8 @@
   ;; mandatory
   ;;
   (treesit-major-mode-setup))
+
+
+
+
+(provide 'quakec-ts-mode)
