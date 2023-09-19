@@ -173,6 +173,9 @@
     (treesit-parser-create 'quakec)
     (quakec-ts-setup)))
 
+(defun quakec-ts-imenu-name-function (node)
+  (treesit-node-text (treesit-node-child-by-field-name node "name")))
+
 (defun quakec-ts-setup ()
   "Setup treesit for -ts-mode."
 
@@ -195,6 +198,13 @@
 
   ;; TODO: finish
   (setq-local treesit-simple-indent-rules quakec-ts-indent-rules)
+
+  ;; imenu
+  ;;
+  (setq-local treesit-simple-imenu-settings
+              '(("Function" "function_\\(definition\\|declaration\\)" nil  quakec-ts-imenu-name-function)
+                ("Variable" "variable_definition" nil  quakec-ts-imenu-name-function)
+                ("Field" "field_definition" nil  quakec-ts-imenu-name-function)))
 
   ;; mandatory
   ;;
