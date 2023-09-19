@@ -7,7 +7,7 @@ Code:
 
 Point-Char: |
 
-Name: Basic Function Definition
+Name: Function Definition
 
 =-=
 int Function (void arg) = {
@@ -29,11 +29,36 @@ Name: If Statement - Single
 =-=
 int Function (void arg) =
 {
+if (1)
+return 0;
+}
+=-=
+int Function (void arg) =
+{
     if (1)
         return 0;
 }
 =-=-=
 
+Name: If/Else Statement - Single
+
+=-=
+int Function (void arg) =
+{
+if (1)
+return 0;
+else
+return 1;
+}
+=-=
+int Function (void arg) =
+{
+    if (1)
+        return 0;
+    else
+        return 1;
+}
+=-=-=
 Name: If Statement - Compound, Same line brace
 
 =-=
