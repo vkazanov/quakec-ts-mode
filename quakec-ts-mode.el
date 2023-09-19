@@ -8,8 +8,11 @@
      ((node-is ")") parent 1)
      ((node-is "]") parent-bol 0)
 
-     ;; should happen before the compound_statement checks
+     ;; opening brace
+     ((node-is "compound_statement") standalone-parent 0)
+     ;; closing brace, should happen before the compound_statement checks
      ((node-is "}") standalone-parent 0)
+
 
      ((or (match nil "compound_statement" nil 1 1)
           (match null "compound_statement"))
@@ -59,7 +62,7 @@
     quakec
     :override t
     :feature keyword
-    (["break" "return" "continue" "enum" "for" "while" "do" "class" "nosave"]
+    (["break" "return" "continue" "enum" "if" "for" "while" "do" "class" "nosave"]
      @font-lock-keyword-face)
 
     ;; TODO: catches wrong lower case (e.g. enum name, also doesn't
