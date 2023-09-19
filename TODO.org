@@ -4,13 +4,31 @@
 
 - [X] syntax-table? see java-ts-mode for an example
 
-- [ ] simple indentation
+- [X] eask/project/testing (c-ts-tests) setup
 
-  - [ ] more from c-ts-mode, limit to core things (functions, statements, etc)
+- [-] simple indentation
+
+  - [X] if
+
+  - [ ] while
+
+  - [ ] do/while
+
+  - [ ] switch/case/break
+
+  - [ ] for
+
+    - [ ] break/continue
+
+  - [ ] frame functions
+
+  - [ ] multiline expressions with parentheses
+
+  - [ ] parameter lists
+
+  - [ ] comments
 
 - [ ] imenu
-
-- [ ] cask/project/testing (c-ts-tests) setup
 
 - [ ] full font-locking (enums and more, work from the grammar)
 
@@ -19,6 +37,8 @@
   - [ ] enums
 
 - [ ] indentation, take 2
+
+  - [ ] enums
 
 - [ ] whichfunc
 
