@@ -65,7 +65,7 @@
     quakec
     :override t
     :feature keyword
-    (["break" "return" "continue" "enum" "if" "else" "for" "while" "do" "class" "nosave"]
+    (["break" "return" "continue" "enum" "if" "else" "for" "while" "do" "class" "nosave" "local"]
      @font-lock-keyword-face)
 
     ;; TODO: catches wrong lower case (e.g. enum name, also doesn't
