@@ -1,5 +1,7 @@
 ;;; quakec-mode.el --- Major mode for editing QuakeC with tree-sitter  -*- coding: utf-8; lexical-binding: t; -*-
 
+(defvar quakec-ts-mode-indent-offset 4)
+
 (defvar quakec-ts-indent-rules
   `((quakec
      ((parent-is "source_file") column-0 0)
@@ -8,7 +10,7 @@
 
      ((or (match nil "compound_statement" nil 1 1)
           (match null "compound_statement"))
-      standalone-parent 2)
+      standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "compound_statement") prev-sibling 0)
 
      ((node-is "}") standalone-parent 0)

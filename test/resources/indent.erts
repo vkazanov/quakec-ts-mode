@@ -1,0 +1,16 @@
+Code:
+  (lambda ()
+    (quakec-ts-mode)
+    (setq-local indent-tabs-mode nil)
+    (setq-local quakec-ts-mode-indent-offset 4)
+    (indent-region (point-min) (point-max)))
+
+Point-Char: |
+
+Name: Basic Function Definition
+
+=-=
+int Function (void arg) = {
+    return 0;
+}
+=-=-=
