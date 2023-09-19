@@ -36,6 +36,12 @@
 
   - [ ] enums
 
+  - [ ] TRUE/FALSE constants
+
+  - [ ] function call arguments (no color? should be variables)
+
+  - [ ] right-hand assignments not highlighted
+
 - [ ] indentation, take 2
 
   - [ ] enums
