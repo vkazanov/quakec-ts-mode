@@ -173,6 +173,11 @@
     (treesit-parser-create 'quakec)
     (quakec-ts-setup)))
 
+(defun quakec-defun-name-function (node)
+  (let ((node-type-text (treesit-node-type node)))
+    (when (equal node-type-text "function_definition")
+      (treesit-node-text (treesit-node-child-by-field-name node "name")))))
+
 (defun quakec-ts-imenu-name-function (node)
   (treesit-node-text (treesit-node-child-by-field-name node "name")))
 
@@ -201,10 +206,18 @@
 
   ;; imenu
   ;;
+
   (setq-local treesit-simple-imenu-settings
               '(("Function" "function_\\(definition\\|declaration\\)" nil  quakec-ts-imenu-name-function)
                 ("Variable" "variable_definition" nil  quakec-ts-imenu-name-function)
                 ("Field" "field_definition" nil  quakec-ts-imenu-name-function)))
+
+  ;; Auxilary
+  ;;
+
+  (setq-local treesit-defun-type-regexp "function_definition")
+  (setq-local treesit-defun-name-function #'quakec-defun-name-function)
+
 
   ;; mandatory
   ;;
