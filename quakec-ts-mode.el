@@ -22,6 +22,9 @@
      ;; simple statements
      ((node-is "else") parent-bol 0)
      ((parent-is "if_statement") standalone-parent quakec-ts-mode-indent-offset)
+     ((and (node-is "while") (parent-is "do_while_statement")) parent-bol 0)
+     ((parent-is "do_while_statement") standalone-parent quakec-ts-mode-indent-offset)
+     ((parent-is "while_statement") standalone-parent quakec-ts-mode-indent-offset)
      )))
 
 (defvar quakec-ts-mode--syntax-table

@@ -89,3 +89,37 @@ int Function (void arg) =
     }
 }
 =-=-=
+
+Name: While Statement - Single
+
+=-=
+int Func () =
+{
+while (1)
+call();
+}
+=-=
+int Func () =
+{
+    while (1)
+        call();
+}
+=-=-=
+
+Name: Do Statement - Single
+
+=-=
+int Func () =
+{
+do
+call();
+while (1);
+}
+=-=
+int Func () =
+{
+    do
+        call();
+    while (1);
+}
+=-=-=
