@@ -6,6 +6,12 @@
 
 - [X] eask/project/testing (c-ts-tests) setup
 
+- [X] imenu
+
+- [X] whichfunc
+
+- [X] treesit-defun-name-function / treesit-defun-type-regexp
+
 - [-] simple indentation
 
   - [X] if
@@ -36,8 +42,6 @@
 
 - [ ] comment/uncomment sometimes reports lack of comment syntax defined on C-M-;
 
-- [ ] imenu
-
 - [ ] full font-locking (enums and more, work from the grammar)
 
   - [ ] constants
@@ -56,11 +60,7 @@
 
   - [ ] enums
 
-- [ ] whichfunc
-
 - [ ] navigation
-
-- [ ] treesit-defun-name-function / treesit-defun-type-regexp
 
 - [ ] xref/tags
 
