@@ -34,7 +34,7 @@
 
   - [X] parameter/argument lists
 
-  - [ ] function calls
+  - [X] function calls
 
   - [ ] multiline expressions with parentheses
 
@@ -61,6 +61,9 @@
 - [ ] indentation, take 2
 
   - [ ] enums
+
+  - [ ] funcalls, take 2 (how to match first named field with a given name? maybe introdce
+    an argument list node into the grammar?)
 
 - [ ] navigation
 
