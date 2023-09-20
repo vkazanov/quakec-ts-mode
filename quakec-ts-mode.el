@@ -30,6 +30,11 @@
      ((parent-is "while_statement") standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "for_statement") standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "case_statement") standalone-parent quakec-ts-mode-indent-offset)
+
+     ;; function call arguments and function definition/declaration
+     ;; parameters
+     ;; ((parent-is "funcall_expression") first-sibling 1)
+     ((parent-is "parameter_list") first-sibling 1)
      )))
 
 (defvar quakec-ts-mode--syntax-table

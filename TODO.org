@@ -32,11 +32,13 @@
 
     - [X] default
 
-  - [ ] frame functions
+  - [X] parameter/argument lists
+
+  - [ ] function calls
 
   - [ ] multiline expressions with parentheses
 
-  - [ ] parameter lists
+  - [ ] frame functions
 
   - [ ] comments
 
