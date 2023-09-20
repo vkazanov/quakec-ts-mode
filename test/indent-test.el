@@ -12,10 +12,10 @@
        (progn
          (cl-pushnew '(quakec "https://github.com/vkazanov/tree-sitter-quakec.git")
                      treesit-language-source-alist)
-         (treesit-install-language-grammar 'quakec)
+         (unless (treesit-ready-p 'quakec)
+           (treesit-install-language-grammar 'quakec))
          ,@body)))
 
 (ert-deftest quakec-ts-mode-test-indentation ()
   (with-quakec-grammar
-    (skip-unless (treesit-ready-p 'quakec))
     (ert-test-erts-file (ert-resource-file "indent.erts"))))
