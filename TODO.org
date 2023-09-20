@@ -10,15 +10,17 @@
 
   - [X] if
 
-  - [ ] while
+  - [X] while
 
-  - [ ] do/while
-
-  - [ ] switch/case/break
+  - [X] do/while
 
   - [ ] for
 
     - [ ] break/continue
+
+  - [ ] switch/case
+
+    - [ ] break
 
   - [ ] frame functions
 
@@ -35,6 +37,8 @@
   - [ ] constants
 
   - [ ] enums
+
+  - [ ] for loop highlighting (int a = 1; ... ) - not highlighted
 
   - [ ] TRUE/FALSE constants
 

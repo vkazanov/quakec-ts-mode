@@ -123,3 +123,19 @@ int Func () =
     while (1);
 }
 =-=-=
+
+Name: For Statement - Single
+
+=-=
+int Func () =
+{
+for (int a = 1; a < 10; a++)
+a++;
+}
+=-=
+int Func () =
+{
+    for (int a = 1; a < 10; a++)
+        a++;
+}
+=-=-=

@@ -25,6 +25,7 @@
      ((and (node-is "while") (parent-is "do_while_statement")) parent-bol 0)
      ((parent-is "do_while_statement") standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "while_statement") standalone-parent quakec-ts-mode-indent-offset)
+     ((parent-is "for_statement") standalone-parent quakec-ts-mode-indent-offset)
      )))
 
 (defvar quakec-ts-mode--syntax-table
