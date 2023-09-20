@@ -16,6 +16,10 @@
            (treesit-install-language-grammar 'quakec))
          ,@body)))
 
-(ert-deftest quakec-ts-mode-test-indentation ()
+(ert-deftest quakec-ts-mode-test-indent ()
   (with-quakec-grammar
-    (ert-test-erts-file (ert-resource-file "indent.erts"))))
+   (ert-test-erts-file (ert-resource-file "indent.erts"))))
+
+(ert-deftest quakec-ts-mode-test-indent-expression ()
+  (with-quakec-grammar
+   (ert-test-erts-file (ert-resource-file "indent-expression.erts"))))
