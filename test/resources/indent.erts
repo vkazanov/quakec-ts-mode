@@ -139,3 +139,31 @@ int Func () =
         a++;
 }
 =-=-=
+
+Name: Switch Statement
+
+=-=
+int Func () =
+{
+switch (var) {
+case 0:
+case 1:
+a = a + 1;
+break;
+default:
+break;
+}
+}
+=-=
+int Func () =
+{
+    switch (var) {
+    case 0:
+    case 1:
+        a = a + 1;
+        break;
+    default:
+        break;
+    }
+}
+=-=-=

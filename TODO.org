@@ -14,13 +14,17 @@
 
   - [X] do/while
 
-  - [ ] for
+  - [X] for
 
-    - [ ] break/continue
+    - [X] break/continue
 
-  - [ ] switch/case
+  - [X] switch/case
 
-    - [ ] break
+    - [X] case labels
+
+    - [X] break
+
+    - [X] default
 
   - [ ] frame functions
 
@@ -29,6 +33,8 @@
   - [ ] parameter lists
 
   - [ ] comments
+
+- [ ] comment/uncomment sometimes reports lack of comment syntax defined on C-M-;
 
 - [ ] imenu
 

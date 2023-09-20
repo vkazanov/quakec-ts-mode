@@ -13,6 +13,9 @@
      ((node-is "compound_statement") standalone-parent 0)
      ;; closing brace, should happen before the compound_statement checks
      ((node-is "}") standalone-parent 0)
+     ;; case/default is a special case that should begin where a parent
+     ;; compound_statement begins
+     ((node-is "case") parent-bol 0)
 
      ((or (match nil "compound_statement" nil 1 1)
           (match null "compound_statement"))
@@ -26,6 +29,7 @@
      ((parent-is "do_while_statement") standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "while_statement") standalone-parent quakec-ts-mode-indent-offset)
      ((parent-is "for_statement") standalone-parent quakec-ts-mode-indent-offset)
+     ((parent-is "case_statement") standalone-parent quakec-ts-mode-indent-offset)
      )))
 
 (defvar quakec-ts-mode--syntax-table
@@ -69,7 +73,10 @@
     quakec
     :override t
     :feature keyword
-    (["break" "return" "continue" "enum" "if" "else" "for" "while" "do" "class" "nosave" "local"]
+    (["break" "return" "continue"
+      "enum" "class"
+      "nosave" "local"
+      "if" "else" "for" "while" "do" "switch" "case" "default"]
      @font-lock-keyword-face)
 
     ;; TODO: catches wrong lower case (e.g. enum name, also doesn't
