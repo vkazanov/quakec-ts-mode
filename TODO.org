@@ -44,6 +44,10 @@
 
 - [ ] comment/uncomment sometimes reports lack of comment syntax defined on C-M-;
 
+- [ ] rework the Makefile to use a global tree-sitter-cli instance (and install it as well)
+
+- [ ] compilation utilities similar to what quakec-mode uses
+
 - [ ] full font-locking (enums and more, work from the grammar)
 
   - [ ] constants
