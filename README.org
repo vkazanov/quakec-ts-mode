@@ -1,0 +1,7 @@
+* Development
+
+Running the test suite:
+
+#+begin_src shell-script
+eask test ert-runner
+#+end_src
