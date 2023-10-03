@@ -12,6 +12,8 @@
 
 - [X] treesit-defun-name-function / treesit-defun-type-regexp
 
+- [X] rework the grammar's  Makefile to use a global tree-sitter-cli instance (and install it as well)
+
 - [-] simple indentation
 
   - [X] if
@@ -36,15 +38,15 @@
 
   - [X] function calls
 
-  - [ ] multiline expressions with parentheses
+  - [X] multiline binary expressions
+
+  - [X] multiline assignment expressions
 
   - [ ] frame functions
 
   - [ ] comments
 
 - [ ] comment/uncomment sometimes reports lack of comment syntax defined on C-M-;
-
-- [ ] rework the Makefile to use a global tree-sitter-cli instance (and install it as well)
 
 - [ ] compilation utilities similar to what quakec-mode uses
 

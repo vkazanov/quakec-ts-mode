@@ -39,6 +39,9 @@
      ((query "(funcall_expression arg: (_) @indent)") parent quakec-ts-mode-indent-offset)
      ;; ((query "(funcall_expression arg: (_) @indent)") prev-sibling 0)
      ((node-is "funcall_expression") parent 0)
+     ((parent-is "binary_expression") parent 0)
+     ((parent-is "assignment_expression") parent-bol quakec-ts-mode-indent-offset)
+
      )))
 
 (defvar quakec-ts-mode--syntax-table

@@ -34,3 +34,47 @@ int Func() = {
      );
 }
 =-=-=
+
+Name: Expression - Multiline Operator
+
+=-=
+int Func() = {
+a = a +
+b;
+}
+=-=
+int Func() = {
+    a = a +
+        b;
+}
+=-=-=
+
+Name: Expression - Multiline Binary
+
+=-=
+int Func() = {
+a = a +
+b +
+c;
+}
+=-=
+int Func() = {
+    a = a +
+        b +
+        c;
+}
+=-=-=
+
+Name: Expression - Multiline Assignment
+
+=-=
+int Func() = {
+a =
+c;
+}
+=-=
+int Func() = {
+    a =
+        c;
+}
+=-=-=
